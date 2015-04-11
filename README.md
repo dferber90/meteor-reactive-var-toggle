@@ -2,24 +2,30 @@
 Toggle boolean values of reactive variables.
 
 # API
-This package extends the prototype of reactive variables with a `toggle` method.
+This package extends the prototype of [reactive variables](http://docs.meteor.com/#/full/reactivevar_pkg) with a `toggle` method.
 
 The fastest way to understand what is going on is to look at the [8 lines of implementation](https://github.com/dferber90/meteor-reactive-var-toggle/blob/master/toggle.js#L5-L12).
 
+# Example
+Here is an example of what this package allows you to do.
+Instances of reactive variables have the methods `get` and a `set`.
+This package adds another method called `toggle` to toggle boolean values.
 ```
 var a = new ReactiveVar(true);
 console.log(a.get()); // logs "true"
-a.toggle();
+a.toggle(); // this `toggle` method is the only thing this package provides.
 console.log(a.get()); // logs "false"
 ```
 
 This is just a shorthand for writing `a.set(!a.get())`,
-except `a.toggle()` does not register a dependency on `a`, like `a.get()` would.
-
+except `a.toggle()` does not [depend](http://docs.meteor.com/#/full/dependency_depend) on `a`, like `a.get()` would.
+It will still call [changed](http://docs.meteor.com/#/full/dependency_changed).
 
 # Installation
 `meteor add dferber:reactive-var-toggle`
 
+## Context
+This is a package for [Meteor](https://www.meteor.com/), published on [Atmosphere](https://atmospherejs.com/) as [dferber:reactive-var-toggle](https://atmospherejs.com/dferber/reactive-var-toggle).
 
 
 # License
