@@ -24,7 +24,7 @@ It will still call [changed](http://docs.meteor.com/#/full/dependency_changed).
 # Installation
 `meteor add dferber:reactive-var-toggle`
 
-## Context
+# Context
 This is a package for [Meteor](https://www.meteor.com/), published on [Atmosphere](https://atmospherejs.com/) as [dferber:reactive-var-toggle](https://atmospherejs.com/dferber/reactive-var-toggle).
 
 
