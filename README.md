@@ -1,28 +1,30 @@
 # reactive-var-toggle
 Toggle boolean values of reactive variables.
 
-# API
-This package extends the prototype of [reactive variables](http://docs.meteor.com/#/full/reactivevar_pkg) with a `toggle` method.
+# Installation
+`meteor add dferber:reactive-var-toggle`
 
-The fastest way to understand what is going on is to look at the [8 lines of implementation](https://github.com/dferber90/meteor-reactive-var-toggle/blob/master/toggle.js#L5-L12).
+# API
+This package extends the prototype of Meteor's [reactive variables](http://docs.meteor.com/#/full/reactivevar_pkg) with a `toggle` method.
 
 # Example
 Here is an example of what this package allows you to do.
-Instances of reactive variables have the methods `get` and a `set`.
-This package adds another method called `toggle` to toggle boolean values.
-```
+By default, instances of reactive variables have the methods `get` and a `set`.
+This package adds another method called `toggle` which inverts boolean values.
+
+```js
 var a = new ReactiveVar(true);
 console.log(a.get()); // logs "true"
 a.toggle(); // this `toggle` method is the only thing this package provides.
 console.log(a.get()); // logs "false"
 ```
 
-This is just a shorthand for writing `a.set(!a.get())`,
-except `a.toggle()` does not [depend](http://docs.meteor.com/#/full/dependency_depend) on `a`, like `a.get()` would.
-It will still call [changed](http://docs.meteor.com/#/full/dependency_changed).
+`a.toggle()` is just a shorthand for writing `a.set(!a.get())`.
+The only difference is that `a.toggle()` does not register a [dependency](http://docs.meteor.com/#/full/dependency_depend) on `a`, like `a.get()` would in `a.set(!a.get())`.
+`a.toggle()` will still call [changed](http://docs.meteor.com/#/full/dependency_changed), like `a.set()` does.
 
-# Installation
-`meteor add dferber:reactive-var-toggle`
+The fastest way to understand what is going on is to look at the [8 lines of implementation](https://github.com/dferber90/meteor-reactive-var-toggle/blob/master/toggle.js#L5-L12).
+
 
 # Context
 This is a package for [Meteor](https://www.meteor.com/), published on [Atmosphere](https://atmospherejs.com/) as [dferber:reactive-var-toggle](https://atmospherejs.com/dferber/reactive-var-toggle).
