@@ -5,7 +5,7 @@
 ReactiveVar.prototype.toggle = function () {
   if (typeof this.curValue !== 'boolean')
     // value is not boolean
-    return;
+    throw new Error('Cannot toggle non-boolean value');
 
   this.curValue = !this.curValue;
   this.dep.changed();
